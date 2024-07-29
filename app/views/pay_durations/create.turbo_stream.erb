@@ -1,0 +1,9 @@
+<%= turbo_stream.append "pay_durations" do %>
+  <%= render "pay_duration", pay_duration: @pay_duration %>
+<% end %>
+<%= turbo_stream.replace "#{dom_id(PayrollCalendar.first.pay_durations.new)}_form" do %>
+  <%= render "form", pay_duration: PayrollCalendar.first.pay_durations.new %>
+<% end %>
+<%= turbo_stream.replace "#pay_periods" do %>
+  <%= render 'list', payroll_calendar: @pay_duration.payroll_calendar %>
+<% end %>

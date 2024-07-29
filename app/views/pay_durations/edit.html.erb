@@ -1,0 +1,10 @@
+<h1>Editing pay period</h1>
+<%= turbo_frame_tag dom_id(@pay_duration) do %>
+  <%= render "form", pay_duration: @pay_duration %>
+<% end  %>
+<br>
+
+<div>
+  <%= link_to "Show this pay period", @pay_duration %> |
+  <%= link_to "Back to pay periods", pay_durations_path %>
+</div>

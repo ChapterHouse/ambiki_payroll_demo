@@ -1,0 +1,22 @@
+<%= form_with(model: payroll_calendar) do |form| %>
+  <% if payroll_calendar.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(payroll_calendar.errors.count, "error") %> prohibited this payroll_calendar from being saved:</h2>
+
+      <ul>
+        <% payroll_calendar.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :starts_on, style: "display: block" %>
+    <%= form.date_field :starts_on %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

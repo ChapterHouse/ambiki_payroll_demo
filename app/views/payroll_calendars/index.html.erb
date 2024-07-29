@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Payroll calendars</h1>
+
+<div id="payroll_calendars">
+  <% @payroll_calendars.each do |payroll_calendar| %>
+    <%= render payroll_calendar %>
+    <p>
+      <%= link_to "Show this payroll calendar", payroll_calendar %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New payroll calendar", new_payroll_calendar_path %>

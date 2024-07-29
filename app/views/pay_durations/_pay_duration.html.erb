@@ -1,0 +1,29 @@
+<%= turbo_frame_tag dom_id(pay_duration), data: { sortable_url: position_pay_duration_path(pay_duration) } do %>
+  <div class="pay_duration" data-sortable-handle>
+      <p class="pay_duration_qualifier">
+        <strong>Qualifier:</strong>
+        <%= qualifier %>
+      </p>
+  
+      <p class="pay_duration_ending">
+        <strong>Ending:</strong>
+        <%= ending %>
+      </p>
+  
+      <p class="pay_duration_position">
+        <strong>Position:</strong>
+        <%= pay_duration.position %>
+      </p>
+  
+      <p class="pay_duration_payroll_calendar">
+        <strong>Payroll calendar:</strong>
+        <%= pay_duration.payroll_calendar_id %>
+      </p>
+      <%= link_to edit_pay_duration_path(pay_duration), data: {turbo_stream: true} do %>
+          <%= inline_svg_tag("edit.svg", class: 'edit_pay_duration_icon') %>
+      <% end %>
+      <%= link_to pay_duration, data: { turbo_method: :delete } do %>
+        <%= inline_svg_tag("trash.svg", class: 'delete_pay_duration_icon') %>
+      <% end %>
+  </div>
+<% end %>

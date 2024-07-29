@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @payroll_calendar %>
+
+<div>
+  <%= link_to "Edit this payroll calendar", edit_payroll_calendar_path(@payroll_calendar) %> |
+  <%= link_to "Back to payroll calendars", payroll_calendars_path %>
+
+  <%= button_to "Destroy this payroll calendar", @payroll_calendar, method: :delete %>
+</div>

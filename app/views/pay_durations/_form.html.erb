@@ -1,0 +1,46 @@
+<%= form_with(model: pay_duration, id: "#{dom_id(pay_duration)}_form", class: :pay_duration_form, data: { controller: 'pay-duration' }) do |form| %>
+  <% if pay_duration.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pay_duration.errors.count, "error") %> prohibited this pay_duration from being saved:</h2>
+      <ul>
+        <% pay_duration.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :qualifier %>
+    <%= form.select :qualifier, 
+                    options_for_select(PayDuration::Qualifiers.transform_keys { |x| x.to_s.sub('the_', '').humanize }, pay_duration.qualifier),
+                    {}, { data: { action: 'pay-duration#updateEndings', pay_duration_target: :qualifier } } %>
+  </div>
+
+  <div>
+    <%= form.label :ending %>
+    <%= form.text_field :ending, list: 'endings', value: ending %>
+    <%= content_tag(:datalist, nil, id: :endings) do %>
+      <% PayDuration::Endings.keys.reject { |x| x =~ /\d+/ }.each do |ending| %>
+        <%= content_tag(:option, nil, value: ending.to_s.humanize, data: { pay_duration_target: ending.ends_with?('day' ) ? :day : ending }) %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :position %>
+    <%= form.number_field :position, type: "hidden" %>
+  </div>
+
+  <div>
+    <%= form.label :payroll_calendar_id %>
+    <%= form.text_field :payroll_calendar_id, type: "hidden" %>
+  </div>
+
+  <div>
+    <%= form.submit pay_duration.new_record? ? 'Add' : 'Save' %>
+    <% unless pay_duration.new_record? %>
+      <%= link_to "Cancel", pay_durations_path %>
+    <% end %>
+  </div>
+<% end %>

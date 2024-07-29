@@ -1,0 +1,18 @@
+<div id="pay_period_display">
+  <div>
+    <p style="color: green"><%= notice %></p>
+    
+    <h1>Pay Periods</h1>
+    
+    <p>Ends On</p>
+    <div id="pay_durations" data-controller="sortable" data-sortable-resource-name-value="pay_duration">
+      <% @pay_durations.each do |pay_duration| %>
+        <% assigns['pay_duration'] = pay_duration %>
+        <%= render pay_duration %>
+      <% end %>
+    </div>
+    
+    <%= render 'form', pay_duration: PayrollCalendar.first.pay_durations.new %>
+  </div>
+  <%= render 'list', payroll_calendar: @pay_durations.first&.payroll_calendar %>
+</div>

@@ -1,0 +1,99 @@
+form {
+  div:has(> input[type="hidden"]) {
+    display: none;
+  }
+
+  label {
+    display: none;
+  }
+
+}
+
+div:has(> #pay_duration_qualifier), div:has(> #pay_duration_ending) {
+  display: inline-block;
+}
+
+#pay_period_display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+.pay_duration {
+  
+  font-size: large;
+  
+  p strong:first-child {
+    display: none;
+  }
+
+  .pay_duration_qualifier, .pay_duration_ending {
+    display: inline-block;
+  }
+
+  .pay_duration_position {
+    display: none;
+  }
+
+  .pay_duration_payroll_calendar {
+    display: none;
+  }
+
+  form {
+    display: inline-block;
+  }
+
+}
+
+.pay_duration_form {
+  height: 1em;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.edit_pay_duration_icon, .delete_pay_duration_icon {
+  height: 1.5em;
+  width: 1.5em;
+  display: inline-block;
+  /*margin: 0 auto;*/
+  /*fill: #3498db;*/
+}
+
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+
+.pay_duration_form div:has(input[type="submit"]) {
+  display: inline-block;
+}
+
+#pay_durations .pay_duration + p {
+  display: none;
+}
+
+#current_pay_period {
+  font-weight: bold;
+  color: blue;
+  font-size: larger;
+}
+
+.sortable-ghost {
+  opacity: 50%;
+}
+
+.sortable-drag {
+  font-weight: bolder;
+}
+
+.sortable-drag a, .sortable-drag form {
+  display: none;
+}

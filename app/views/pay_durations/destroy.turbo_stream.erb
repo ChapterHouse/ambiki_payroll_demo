@@ -1,0 +1,4 @@
+<%= turbo_stream.remove("#{dom_id(@pay_duration)}") %>
+<%= turbo_stream.replace "#pay_periods" do %>
+  <%= render 'list', payroll_calendar: @pay_duration.payroll_calendar %>
+<% end %>

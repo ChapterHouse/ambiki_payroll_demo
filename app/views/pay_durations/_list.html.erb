@@ -1,0 +1,7 @@
+<ol id="#pay_periods">
+  <% (payroll_calendar&.payroll_periods || []).each do |date_range| %>
+  <li <%= date_range.include?(Date.today) ? "id=current_pay_period" : ''  %>>
+    <%= date_range.begin.strftime("%B %d, %Y") + ' to ' + date_range.end.strftime("%B %d, %Y") %> 
+  </li>
+  <% end %>
+</ol>
